@@ -19,7 +19,7 @@
     <file path="/index.ejs" changelist="16d30531-ace2-4d96-9bb1-abfd57fe2675" time="1378140523409" ignored="false" />
     <file path="/app.js" changelist="16d30531-ace2-4d96-9bb1-abfd57fe2675" time="1378140780936" ignored="false" />
     <file path="/node9.js" changelist="16d30531-ace2-4d96-9bb1-abfd57fe2675" time="1378142218220" ignored="false" />
-    <file path="/README.md" changelist="16d30531-ace2-4d96-9bb1-abfd57fe2675" time="1378148640716" ignored="false" />
+    <file path="/README.md" changelist="16d30531-ace2-4d96-9bb1-abfd57fe2675" time="1378148860799" ignored="false" />
     <file path="/hello.html" changelist="16d30531-ace2-4d96-9bb1-abfd57fe2675" time="1378148533558" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +43,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.2635659">
+            <state line="5" column="42" selection-start="187" selection-end="187" vertical-scroll-proportion="0.10981912">
               <folding />
             </state>
           </provider>
@@ -230,12 +230,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24982357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24982357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -397,7 +397,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.2635659">
+        <state line="5" column="42" selection-start="187" selection-end="187" vertical-scroll-proportion="0.10981912">
           <folding />
         </state>
       </provider>
