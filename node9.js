@@ -1,4 +1,4 @@
-// Serving static files with Express
+// Making a call to another server using restler
 
 var http = require('http'),
     express = require('express'),
@@ -20,4 +20,3 @@ http.createServer(app).listen(3001, function() {
 });
 
 
-// remember to install restler

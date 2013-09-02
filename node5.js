@@ -1,4 +1,4 @@
-// Routing...?
+// Routing
 
 var http = require('http');
 http.createServer(function(req, res) {
@@ -9,6 +9,6 @@ http.createServer(function(req, res) {
         res.writeHead(404, {'Content-Type' : 'text/plain'});
         res.end("Nope!");
     }
-}).listen(3001, '127.0.0.1');
+}).listen(3001);
 
 // ... maybe we should use a framework ...

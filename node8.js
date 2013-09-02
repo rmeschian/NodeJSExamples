@@ -14,13 +14,14 @@ app.get('/getMyFile/*', function(req, res){
     res.sendfile(path.join(__dirname, fileName)); // /getMyFile/node7.js
 });
 
+app.use(function(req, res) {
+    res.status(404).sendfile(path.join(__dirname, 'public/404.html'));
+});
+
 
 http.createServer(app).listen(3001, function() {
     console.log("Server started!");
 });
 
-
-
-// demonstrate creating an express application using 'express'
 
 

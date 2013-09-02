@@ -14,10 +14,6 @@ app.get('/getMyFile/*', function(req, res){
     res.sendfile(path.join(__dirname, fileName)); // /getMyFile/node7.js
 });
 
-app.use(function(req, res) {
-    res.status(404).send('Do not have what you need, sorry :-(');
-});
-
 
 http.createServer(app).listen(3001, function() {
     console.log("Server started!");
