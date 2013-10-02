@@ -1,8 +1,11 @@
 // Using the Express framework
 
 var http = require('http'),
-    express = require('express'),
-    app = express();
+    express = require('express');
+
+
+var app = express();
+
 
 app.use(function(req, res, next) {
     console.log(req.url);
@@ -10,12 +13,13 @@ app.use(function(req, res, next) {
 });
 
 app.get('/hello', function(req, res, next) {
-    res.send('Hello World');
+    res.send('<h1>Hello World</h1>');
 });
 
 app.get('/bye', function(req, res, next) {
     res.send('Goodbye World');
 });
+
 
 // parameter as part of the path
 app.get('/info/:id', function(req, res, next) {

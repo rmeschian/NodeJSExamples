@@ -2,9 +2,10 @@
 
 var http = require('http'),
     express = require('express'),
-    app = express(),
     path = require('path');
 
+
+var app = express();
 
 // location of static files
 app.use(express.static(path.join(__dirname, 'public')));

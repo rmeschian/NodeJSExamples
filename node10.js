@@ -82,14 +82,19 @@ app.put('/saveData1', function(req, res, next) {
 // Protected static files
 app.get('/private/*', function(req, res, next) {
     fs.exists('.' + req.url, function(exists) {
+
         if(exists) {
-            if(req.session.user)
+
+            if(req.session.user) {
                 res.sendfile('.' + req.url);
-            else
+            } else {
                 next(new Error('Access denied'));
+            }
+
         } else {
             next();
         }
+
     });
 });
 
