@@ -1,7 +1,20 @@
-// some modules come with nodejs
-var path = require('path');
+// Some modules come with nodejs, such as 'path' and 'fs'
 
-var filePath = path.join('foo', 'bar/zoo', 'file.js');
-console.log('File path: ' + filePath);
-console.log('Dirname' + path.dirname(filePath));
-console.log('Basename' + path.basename(filePath));
+var path = require('path'),
+    fs = require('fs');
+
+var filePath = path.join(__dirname, 'public/hello.html');
+
+console.log("Path information:");
+console.log('Dirname: ' + path.dirname(filePath));
+console.log('Basename: ' + path.basename(filePath));
+
+
+fs.exists(filePath, function(exists) {
+    if(!exists) { return console.error('File ' + filePath + ' does not exist'); }
+
+    fs.readFile(filePath, 'utf8', function(err, data) {
+        if(err) { return console.error(err); }
+        console.log(data);
+    });
+});
