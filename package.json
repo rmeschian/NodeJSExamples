@@ -1,22 +1,21 @@
 {
-    "name"        : "NodeJSExamples",
-    "description" : "Examples to help you get started with node.js and express.",
-    "version"     : "0.1.0",
-    "author"      : {
+    "name"         : "NodeJSExamples",
+    "description"  : "Examples to help you get started with node.js and express.",
+    "version"      : "0.1.0",
+    "author"       : {
         "name"  : "Rouben Meschian",
         "email" : "rmeschian@gmail.com"
     },
-    "licenses"    : [
+    "licenses"     : [
         {
             "type" : "MIT"
         }
     ],
-    "engines"     : {
+    "engines"      : {
         "node" : ">= 0.6.0"
     },
-
     "dependencies" : {
-        "express" : "*",
-        "restler" : "*"
+        "express" : "^4.4.5",
+        "restler" : "^3.2.2"
     }
 }
