@@ -9,3 +9,6 @@ http.createServer(function (req, res) {
 
 }).listen(3001);
 
+
+// use "nodemon" to keep the server updated with code changes
+// npm install nodemon

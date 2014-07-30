@@ -1,8 +1,7 @@
 // Making a call to another server using restler
 
 
-var http = require('http'),
-    express = require('express'),
+var express = require('express'),
     rest = require('restler');
 
 var app = express();
@@ -23,7 +22,7 @@ app.get('/infoFromAnotherServer', function(req, res, next) {
 });
 
 
-http.createServer(app).listen(3001, function() {
+app.listen(3001, function() {
     console.log('Server started!');
 });
 

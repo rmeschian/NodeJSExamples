@@ -1,8 +1,6 @@
 // Using the Express framework
 
-var http = require('http'),
-    express = require('express');
-
+var express = require('express');
 
 var app = express();
 
@@ -46,10 +44,10 @@ app.use(function(req, res, next) {
     res.send("NOT FOUND!!!");
 });
 
-http.createServer(app).listen(3001, function() {
+app.listen(3001, function() {
     console.log("Server started!");
 });
 
+// use "nodemon" to keep the server updated with code changes
+// npm install nodemon
 
-// remember to install express
-// remember nodemon

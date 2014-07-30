@@ -1,7 +1,6 @@
 // Serving static files with Express
 
-var http = require('http'),
-    express = require('express'),
+var express = require('express'),
     path = require('path');
 
 var app = express();
@@ -19,7 +18,7 @@ app.use(function(req, res) {
 });
 
 
-http.createServer(app).listen(3001, function() {
+app.listen(3001, function() {
     console.log("Server started!");
 });
 

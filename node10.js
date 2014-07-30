@@ -1,113 +1,62 @@
-// Express in some detail
+// Express body parsing
+// 1. manual parsing
+// 2. create a route for parsing to make things easier
+// 3. use the body-parser router from express
 
-var express = require('express'),
-    http = require('http'),
-    path = require('path'),
-    fs = require('fs');
+var express = require('express');
+var path = require('path');
 
 var app = express();
 
 
-app.set('port', process.env.PORT || 3001);
-app.use(express.favicon()); // specify path to your icon.ico
-app.use(express.logger('dev'));
-app.use(express.bodyParser()); // express.json(), express.urlencoded() and  express.multipart()
-app.use(express.compress()); // gzip output
-app.use(express.methodOverride()); // allow use of other http methods (see form.html)
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
+//var bodyParser = require('body-parser');
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({
+//    extended : true
+//}));
 
-//    MongoStore = require('connect-mongo')(express);
-//    app.use(express.session({
-//        secret: settings.cookie_secret,
-//        store: new MongoStore({
-//            db: settings.db
-//        })
-//    }));
 
-app.use(app.router); // use get/post/etc routes first...
+// location of static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if(app.get('env') == 'development') {  // export NODE_ENV=production
-    app.use(express.errorHandler({showStack : true, dumpExceptions : true}));
-}
-
-
-// Sessions and very basic authentication
 app.get('/', function(req, res, next) {
-    if(!req.session.user)
-        res.redirect('/login.html');
-    else
-        res.send('Welcome, authenticated user ' + req.session.user.username);
+    res.redirect('/login.html');
 });
 
 app.post('/login', function(req, res, next) {
-    // authenticate the user
-    if(req.body.username === 'rmeschian' && req.body.password === '123') {
-        req.session.user = req.body;
-    }
-    res.redirect('/');
-});
+    // req.method === 'POST'
 
+    var body = '';
+    req.on('data', function(data) {
+        body += data;
 
-app.get('/logout', function(req, res, next) {
-    // authenticate the user
-    delete req.session.user;
-    res.redirect('/');
-});
+        // Too much POST data, kill the connection!
+        if(body.length > 1000000)
+            req.connection.destroy();
+    });
+    req.on('end', function() {
 
+        // body is now: username=rmeschian&password=123
 
-// Cookies
-app.get('/write/cookies/:data', function(req, res, next) {
-    res.cookie('armenia', req.params.data, { maxAge : 900000, httpOnly : false});
-    res.send('Set cookie armenia to value ' + req.params.data);
-});
+        var bodyObj = {};
+        body.split('&').forEach(function(pairVals) {
+            var pair = pairVals.split('=');
+            bodyObj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+        });
 
-app.get('/read/cookies', function(req, res, next) {
-    res.send('The value for "armenia" value is "' + req.cookies.armenia + '"');
-});
+        req.body = bodyObj;
 
-
-// bodyParser + methodOverride - form.html
-app.post('/saveData1', function(req, res, next) {
-    res.end('Got data in POST: ' + JSON.stringify(req.body));
-});
-
-app.put('/saveData1', function(req, res, next) {
-    res.end('Got data in PUT: ' + JSON.stringify(req.body));
-});
-
-
-// Protected static files
-app.get('/private/*', function(req, res, next) {
-    fs.exists('.' + req.url, function(exists) {
-
-        if(exists) {
-
-            if(req.session.user) {
-                res.sendfile('.' + req.url);
-            } else {
-                next(new Error('Access denied'));
-            }
-
+        // authenticate
+        if(req.body.username === 'rmeschian' && req.body.password === '123') {
+            res.redirect('/hello.html');
         } else {
-            next();
+            res.redirect('/');
         }
-
     });
 });
 
 
-// 404
-app.use(function(req, res) {
-    res.status(404).sendfile(path.join(__dirname, 'public/404.html'));
+app.listen(3001, function() {
+    console.log('Server started');
 });
 
-
-http.createServer(app).listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + app.get('port'));
-});
-
-
-// npm install -g express-generator

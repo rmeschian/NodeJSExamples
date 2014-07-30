@@ -14,7 +14,9 @@ fs.exists(filePath, function(exists) {
     if(!exists) { return console.error('File ' + filePath + ' does not exist'); }
 
     fs.readFile(filePath, 'utf8', function(err, data) {
-        if(err) { return console.error(err); }
+        if(err) {
+            return console.error(err);
+        }
         console.log(data);
     });
 });
