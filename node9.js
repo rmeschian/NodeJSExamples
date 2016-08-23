@@ -12,6 +12,7 @@ app.get('/infoFromAnotherServer', function(req, res, next) {
     // Make sure you are running the node7.js example on port 3002
     rest.get('http://localhost:3002/getMyFile/node7.js').on('complete', function(result) {
 
+        console.log(result);
         if(result instanceof Error) {
             next(result);
         } else {
