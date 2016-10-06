@@ -1,4 +1,5 @@
 // basic static file server
+// localhost:3001/yay.html
 
 const fs = require('fs');
 const path = require('path');
