@@ -1,8 +1,8 @@
 // Routing
 
-var http = require('http');
+const http = require('http');
 
-http.createServer(function(req, res) {
+const httpServer = http.createServer(function(req, res) {
 
     if(req.url === '/hello') {
         res.writeHead(200, {'Content-Type' : 'text/plain'});
@@ -11,6 +11,8 @@ http.createServer(function(req, res) {
         res.writeHead(404, {'Content-Type' : 'text/plain'});
         res.end("Nope!");
     }
-}).listen(3001);
+});
+
+httpServer.listen(3001); // start listening on port 3001
 
 // ... maybe we should use a framework ...

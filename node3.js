@@ -1,7 +1,7 @@
 // Some modules come with nodejs, such as 'path' and 'fs'
 
-var path = require('path'),
-    fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
 var filePath = path.join(__dirname, 'public/hello.html');
 
@@ -11,7 +11,9 @@ console.log('Basename: ' + path.basename(filePath));
 
 
 fs.exists(filePath, function(exists) {
-    if(!exists) { return console.error('File ' + filePath + ' does not exist'); }
+    if(!exists) {
+        return console.error('File ' + filePath + ' does not exist');
+    }
 
     fs.readFile(filePath, 'utf8', function(err, data) {
         if(err) {
