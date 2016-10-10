@@ -1,5 +1,5 @@
 // basic static file server
-// localhost:3001/yay.html
+// localhost:3001/yay.html  or puppy.jpg
 
 const fs = require('fs');
 const path = require('path');
@@ -20,8 +20,7 @@ const httpServer = http.createServer(function(req, res) {
 
         res.statusCode = 200;
 
-        res.write(data);
-        return res.end();
+        return res.end(data);
     });
 });
 
