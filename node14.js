@@ -22,7 +22,7 @@ const httpServer = http.createServer(function(req, res) {
         res.end('' + (parseFloat(parsedQuery.left) + parseFloat(parsedQuery.right)));
         return;
     } else if(parsedUrl.pathname === '/subtract') {
-        res.end('' + (parseFloat(parsedQuery.left) + parseFloat(parsedQuery.right)));
+        res.end('' + (parseFloat(parsedQuery.left) - parseFloat(parsedQuery.right)));
         return;
     }
 
