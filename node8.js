@@ -1,25 +1,26 @@
 // Serving static files with Express
 
-var express = require('express'),
-    path = require('path');
+import express from 'express';
+import path from 'path';
 
-var app = express();
+const app = express();
+const __dirname = path.resolve();
 
 // location of static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/getMyFile/*', function(req, res){
-    var fileName = path.basename(req.url);
-    res.sendfile(path.join(__dirname, fileName)); // /getMyFile/node7.js
+app.get('/getMyFile/*', (req, res) => {
+    const fileName = path.basename(req.url);
+    res.sendFile(path.join(__dirname, fileName)); // /getMyFile/node7.js
 });
 
-app.use(function(req, res) {
-    res.status(404).sendfile(path.join(__dirname, 'public/404.html'));
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, 'public/404.html'));
 });
 
 
-app.listen(3001, function() {
-    console.log("Server started!");
+app.listen(3002, () => {
+    console.log('Server started!');
 });
 
 

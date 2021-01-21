@@ -2,6 +2,7 @@
   "name": "NodeJSExamples",
   "description": "Examples to help you get started with node.js and express.",
   "version": "0.1.0",
+  "type": "module",
   "author": {
     "name": "Rouben Meschian",
     "email": "rmeschian@gmail.com"
@@ -12,13 +13,14 @@
     }
   ],
   "dependencies": {
-    "compression": "^1.6.2",
-    "cookie-parser": "^1.4.3",
-    "ejs": "^2.5.1",
-    "express": "^4.14.0",
-    "express-session": "^1.14.0",
-    "method-override": "^2.3.6",
-    "morgan": "^1.7.0",
-    "serve-favicon": "^2.3.0"
+    "axios": "^0.21.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0"
   }
 }

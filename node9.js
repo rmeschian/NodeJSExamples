@@ -1,30 +1,20 @@
 // Making a call to another server using restler
 
+import express from 'express';
+import axios from 'axios';
 
-var express = require('express'),
-    rest = require('restler');
+const app = express();
 
-var app = express();
-
-
-app.get('/infoFromAnotherServer', function(req, res, next) {
-
+app.get('/infoFromAnotherServer', async (req, res, next) => {
     // Make sure you are running the node7.js example on port 3002
-    rest.get('http://localhost:3002/getMyFile/node7.js').on('complete', function(result) {
-
-        console.log(result);
-        if(result instanceof Error) {
-            next(result);
-        } else {
-            res.send(result);
-        }
-
-    });
+    try {
+        const result = await axios.get('http://localhost:3002/getMyFile/node7.js');
+        res.send(result.data);
+    } catch (error) {
+        next(error);
+    }
 });
 
-
-app.listen(3001, function() {
+app.listen(3001, () => {
     console.log('Server started!');
 });
-
-
