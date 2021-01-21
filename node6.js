@@ -1,53 +1,50 @@
 // Using the Express framework
 
-var express = require('express');
+import express from 'express';
 
-var app = express();
+const app = express();
 
-
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     console.log(req.url);
     next();
 });
 
-app.get('/hello', function(req, res, next) {
+app.get('/hello', (req, res, next) => {
     res.send('<h1>Hello World</h1>');
 });
 
-app.get('/bye', function(req, res, next) {
+app.get('/bye', (req, res, next) => {
     res.send('Goodbye World');
 });
 
-
 // parameter as part of the path
-app.get('/info/:id', function(req, res, next) {
+app.get('/info/:id', (req, res, next) => {
     res.json({
-        title : "Info about path " + req.params.id
+        title: `Info about path ${req.params.id}`,
     });
 });
 
 // parameter as argument  /info?id=hello
-app.get('/info', function(req, res, next) {
+app.get('/info', (req, res, next) => {
     res.json({
-        title : "Info about argument " + req.param('id')
+        title: `Info about argument ${req.query.id}`,
     });
 });
 
-app.get('/data', function(req, res) {
+app.get('/data', (req, res, next) => {
     res.json({
-        title : req.param('name')
+        title: req.query.name,
     });
 });
 
-app.use(function(req, res, next) {
-    console.log("not found!");
-    res.send("NOT FOUND!!!");
+app.use((req, res, next) => {
+    console.log('not found!');
+    res.send('NOT FOUND!!!');
 });
 
-app.listen(3001, function() {
-    console.log("Server started!");
+app.listen(3001, () => {
+    console.log('Server started!');
 });
 
 // use "nodemon" to keep the server updated with code changes
 // npm install nodemon
-

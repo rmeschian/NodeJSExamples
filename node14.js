@@ -5,24 +5,21 @@
 // npm install -g node-inspector
 // node-debug node12.js
 
+import http from 'http';
+import url from 'url';
+import querystring from 'querystring';
 
-const fs = require('fs');
-const path = require('path');
-const http = require('http');
-const url = require('url');
-const querystring = require('querystring');
-
-const httpServer = http.createServer(function(req, res) {
+const httpServer = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url);
     const parsedQuery = querystring.parse(parsedUrl.query);
     console.log(parsedQuery);
 
     if(parsedUrl.pathname === '/add') {
-        res.end('' + (parseFloat(parsedQuery.left) + parseFloat(parsedQuery.right)));
+        res.end(`${parseFloat(parsedQuery.left) + parseFloat(parsedQuery.right)}`);
         return;
     } else if(parsedUrl.pathname === '/subtract') {
-        res.end('' + (parseFloat(parsedQuery.left) - parseFloat(parsedQuery.right)));
+        res.end(`${parseFloat(parsedQuery.left) - parseFloat(parsedQuery.right)}`);
         return;
     }
 

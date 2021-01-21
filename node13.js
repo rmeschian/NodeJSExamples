@@ -1,13 +1,13 @@
 // basic static file server
 // localhost:3001/yay.html  or puppy.jpg
 
-const fs = require('fs');
-const path = require('path');
-const http = require('http');
+import http from 'http';
+import path from 'path';
+import fs from 'fs';
 
 const staticBasePath = './public'; // directory from which we will server out files
 
-const httpServer = http.createServer(function(req, res) {
+const httpServer = http.createServer((req, res) => {
 
     const targetFileLoc = path.join(staticBasePath, req.url);
 
